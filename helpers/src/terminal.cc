@@ -1,6 +1,6 @@
 #include "helpers/include/terminal.h"
 
-std::string Terminal::Exec(std::string s_cmd){
+std::string Terminal::Exec(std::string s_cmd) {
 	const char* cmd = s_cmd.c_str();
 	char buffer[128];
 	std::string result = "";
@@ -20,4 +20,9 @@ std::string Terminal::Exec(std::string s_cmd){
 	}
 	pclose(pipe);
 	return result;
+}
+
+std::string Terminal::dExec(std::string s_cmd) {
+    printf("dExec : %s\n", s_cmd.c_str());
+    return Exec(s_cmd);
 }

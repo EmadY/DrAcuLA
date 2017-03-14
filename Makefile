@@ -1,6 +1,10 @@
-OBJS = obj/DrAcuLA.o obj/terminal.o
+OBJS = obj/DrAcuLA.o obj/terminal.o obj/slave.o
 CC = g++
 BFLAGS = -std=c++11 -I .
+
+rebuild:
+	make clean
+	make all
 
 all: DrAcuLA
 
@@ -12,6 +16,9 @@ obj/DrAcuLA.o: main.cc
 
 obj/terminal.o: helpers/src/terminal.cc helpers/include/terminal.h
 	$(CC) $(BFLAGS) -c helpers/src/terminal.cc -o obj/terminal.o
+
+obj/slave.o: wpa_control/src/slave.cc wpa_control/include/slave.h
+	$(CC) $(BFLAGS) -c wpa_control/src/slave.cc -o obj/slave.o
 
 clean:
 	rm DrAcuLA obj/*
