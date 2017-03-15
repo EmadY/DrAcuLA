@@ -1,4 +1,4 @@
-OBJS = obj/DrAcuLA.o obj/terminal.o obj/slave.o
+OBJS = obj/DrAcuLA.o obj/terminal.o obj/slave.o obj/master.o
 CC = g++
 BFLAGS = -std=c++11 -I .
 
@@ -19,6 +19,9 @@ obj/terminal.o: helpers/src/terminal.cc helpers/include/terminal.h
 
 obj/slave.o: wpa_control/src/slave.cc wpa_control/include/slave.h
 	$(CC) $(BFLAGS) -c wpa_control/src/slave.cc -o obj/slave.o
+
+obj/master.o: wpa_control/src/master.cc wpa_control/include/master.h
+	$(CC) $(BFLAGS) -c wpa_control/src/master.cc -o obj/master.o
 
 clean:
 	rm DrAcuLA obj/*

@@ -38,7 +38,7 @@ bool Slave::best_ap(AP& top_ap) {
 		// if it's the same index, pick whichever is closer.
 		if(curr.index < top_ap.index && curr.rssi != 0) {
 			top_ap = curr; continue;
-		} else if(curr.index == top_ap.index && curr.rssi != 0 && curr.rssi < top_ap.rssi) {
+		} else if(curr.index == top_ap.index && curr.rssi != 0 && curr.rssi > top_ap.rssi) {
 			top_ap = curr;
 		}	
 	}
